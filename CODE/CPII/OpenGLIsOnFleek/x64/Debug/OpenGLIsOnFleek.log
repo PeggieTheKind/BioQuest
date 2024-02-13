@@ -1,0 +1,48 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Graphics2.vcxproj, OpenGLIsOnFleek.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  theMain.cpp
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(224,32): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(227,26): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(249,36): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(268,36): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(313,32): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1206,33): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1291,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1341,67): warning C4305: '+=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1342,67): warning C4305: '+=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1343,67): warning C4305: '+=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1351,67): warning C4305: '-=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1352,67): warning C4305: '-=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1353,67): warning C4305: '-=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+  OpenGLIsOnFleek.vcxproj -> C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\x64\Debug\BioQuest.exe

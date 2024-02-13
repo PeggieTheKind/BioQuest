@@ -1,0 +1,16 @@
+CAMERA
+0 20 50
+MODELS
+table.ply
+Sphere_1_unit_Radius_xyz_n_rgba_uv.ply
+END
+SETS
+table.ply
+0 -10 0
+0 0 0
+0.03
+0 0 0 0
+Table
+table.bmp
+1
+END

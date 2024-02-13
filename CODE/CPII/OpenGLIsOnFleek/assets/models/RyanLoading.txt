@@ -1,0 +1,7 @@
+[
+  {
+    "name": "player",
+    "speed": "2",
+    "modelPath": "assets/models/player.ply"
+  }
+]
