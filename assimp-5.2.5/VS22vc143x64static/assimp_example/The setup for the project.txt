@@ -1,0 +1,13 @@
+The setup for the project:
+
+include: 
+$(ProjectDir)../../include/			--> The assimp directory
+$(ProjectDir)../include/			--> The config directory
+$(ProjectDir)../../contrib/zip/src		--> The zip directory
+
+library:
+$(ProjectDir)../lib/Debug	--> assimp-vc142-mtd.lib  (note the "d" for "debug")
+				--> zlibstaticd.lib
+
+$(ProjectDir)../lib/Release	--> assimp-vc142-mt.lib
+				--> zlibstatic.lib
