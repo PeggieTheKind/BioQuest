@@ -1,48 +1,79 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Graphics2.vcxproj, OpenGLIsOnFleek.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  cHiResTimer.cpp
+  cShader.cpp
+  cShaderManager.cpp
+  cDebugRenderer.cpp
+  cGlobal.cpp
+  cLightHelper.cpp
+  cLightManager.cpp
+  cMesh.cpp
+  cVAOManager.cpp
+  sModelDrawInfo.cpp
+  ScenePersistence.cpp
+  C24BitBMPpixel.cpp
+  cBasicTextureManager.cpp
+  CTextureFromBMP.cpp
   theMain.cpp
-C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(224,32): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(227,26): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(249,36): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(224,32): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(227,26): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(249,36): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(268,36): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(268,36): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(313,32): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1206,33): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1291,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1341,67): warning C4305: '+=': truncation from 'double' to 'T'
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(313,32): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1206,33): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1291,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1341,67): warning C4305: '+=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1342,67): warning C4305: '+=': truncation from 'double' to 'T'
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1342,67): warning C4305: '+=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1343,67): warning C4305: '+=': truncation from 'double' to 'T'
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1343,67): warning C4305: '+=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1351,67): warning C4305: '-=': truncation from 'double' to 'T'
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1351,67): warning C4305: '-=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1352,67): warning C4305: '-=': truncation from 'double' to 'T'
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1352,67): warning C4305: '-=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1353,67): warning C4305: '-=': truncation from 'double' to 'T'
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(1353,67): warning C4305: '-=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-  OpenGLIsOnFleek.vcxproj -> C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\CODE\CPII\x64\Debug\BioQuest.exe
+  Generating Code...
+  glad.c
+glfw3.lib(input.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(input.obj)' or at ''; linking object as if no debug info
+glfw3.lib(init.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(init.obj)' or at ''; linking object as if no debug info
+glfw3.lib(window.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(window.obj)' or at ''; linking object as if no debug info
+glfw3.lib(context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(context.obj)' or at ''; linking object as if no debug info
+glfw3.lib(win32_window.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_window.obj)' or at ''; linking object as if no debug info
+glfw3.lib(win32_joystick.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_joystick.obj)' or at ''; linking object as if no debug info
+glfw3.lib(win32_time.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_time.obj)' or at ''; linking object as if no debug info
+glfw3.lib(win32_init.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_init.obj)' or at ''; linking object as if no debug info
+glfw3.lib(win32_monitor.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_monitor.obj)' or at ''; linking object as if no debug info
+glfw3.lib(win32_thread.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_thread.obj)' or at ''; linking object as if no debug info
+glfw3.lib(monitor.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(monitor.obj)' or at ''; linking object as if no debug info
+glfw3.lib(vulkan.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(vulkan.obj)' or at ''; linking object as if no debug info
+glfw3.lib(wgl_context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(wgl_context.obj)' or at ''; linking object as if no debug info
+glfw3.lib(egl_context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(egl_context.obj)' or at ''; linking object as if no debug info
+glfw3.lib(osmesa_context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(osmesa_context.obj)' or at ''; linking object as if no debug info
+  OpenGLIsOnFleek.vcxproj -> C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\x64\Debug\BioQuest.exe

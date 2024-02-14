@@ -92,8 +92,8 @@ static void error_callback(int error, const char* description)
 int main(void)
 {
     //attempt load from json
-    //textReading* temp = new textReading();
-    //temp->readTxt();
+    textReading* temp = new textReading();
+    temp->readTxt();
     
     cMesh bob;
 
