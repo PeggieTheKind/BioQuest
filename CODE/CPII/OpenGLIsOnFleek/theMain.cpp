@@ -162,25 +162,13 @@ int main(void)
         sphereDrawingInfo, shaderProgramID);
     std::cout << "Loaded: " << sphereDrawingInfo.numberOfVertices << " vertices" << std::endl;
 
-    sModelDrawInfo danbo;
+    sModelDrawInfo player7;
     //    ::g_pMeshManager->LoadModelIntoVAO("Sphere_1_unit_Radius.ply",
-    ::g_pMeshManager->LoadModelIntoVAO("danbo.ply",
-        danbo, shaderProgramID);
-    std::cout << "Loaded: " << danbo.numberOfVertices << " vertices" << std::endl;
+    ::g_pMeshManager->LoadModelIntoVAO("player7.ply",
+        player7, shaderProgramID);
+    std::cout << "Loaded: " << player7.numberOfVertices << " vertices" << std::endl;
 
-    //Terrain_xyz_n_rgba.ply
-    sModelDrawInfo map;
-    //    ::g_pMeshManager->LoadModelIntoVAO("Sphere_1_unit_Radius.ply",
-    ::g_pMeshManager->LoadModelIntoVAO("map.ply",
-        map, shaderProgramID);
-    std::cout << "Loaded: " << map.numberOfVertices << " vertices" << std::endl;
-
-    //Flat_1x1_plane.ply
-    sModelDrawInfo floorModel;
-    //    ::g_pMeshManager->LoadModelIntoVAO("Sphere_1_unit_Radius.ply",
-    ::g_pMeshManager->LoadModelIntoVAO("Sphere_1_unit_Radius_xyz_n_rgba_uv.ply",
-        floorModel, shaderProgramID);
-    std::cout << "Loaded: " << floorModel.numberOfVertices << " vertices" << std::endl;
+    
     // ... and so on
     ::g_pTextureManager = new cBasicTextureManager();
 
@@ -218,106 +206,12 @@ int main(void)
     //models
     //map for discard
     cMesh* mapOf = new cMesh();
-    mapOf->meshName = "map.ply";
-    mapOf->drawPosition.y = 0.0f;
-    mapOf->drawPosition.z = 20.0f;
-    mapOf->setUniformDrawScale(.2);
-    mapOf->friendlyName = "map";
-    //mapOf->bIsWireframe = true;
-    mapOf->alpha_trans = 0.1;
-    mapOf->textureName[1] = "Water_Texture_01.bmp";
-
-    //mapOf->bUseDebugColours;
-    //mapOf->wholeObjectDebugColourRGBA.g = 120.0;
+    mapOf->meshName = "player7.ply";
+    mapOf->friendlyName = "player";
+    mapOf->setUniformDrawScale(.10);
+    mapOf->bUseDebugColours = true;
+    
     ::g_vec_pMeshesToDraw.push_back(mapOf);
-
-    //make many danbos
-    for (int i = 1; i < 20; i++)
-    {
-       
-        //models
-        cMesh* pDanbo = new cMesh();
-        pDanbo->meshName = "danbo.ply";
-        pDanbo->drawPosition.y = 0.0f;
-        pDanbo->drawPosition.z = 0.0f;
-        pDanbo->setUniformDrawScale(2.0f);
-        pDanbo->friendlyName = "danbo";
-        pDanbo->textureName[0] = "taylor-swift-jimmy-fallon.bmp";
-        pDanbo->textureRatios[0] = 0.6f;
-        pDanbo->textureName[1] = "Water_Texture_01.bmp";
-        pDanbo->textureRatios[1] = 0.4f;
-        pDanbo->drawPosition.x = i * 5;
-        ::g_vec_pMeshesToDraw.push_back(pDanbo);
-
-    }
-
-    for (int i = 1; i < 20; i++)
-    {
-
-        //models
-        cMesh* pDanbo = new cMesh();
-        pDanbo->meshName = "danbo.ply";
-        pDanbo->drawPosition.y = 0.0f;
-        pDanbo->drawPosition.z = 0.0f;
-        pDanbo->setUniformDrawScale(2.0f);
-        pDanbo->friendlyName = "danbo";
-        pDanbo->textureName[0] = "taylor-swift-jimmy-fallon.bmp";
-        pDanbo->textureRatios[0] = 0.6f;
-        pDanbo->textureName[1] = "Water_Texture_01.bmp";
-        pDanbo->textureRatios[1] = 0.4f;
-        pDanbo->drawPosition.x = i * - 5;
-        ::g_vec_pMeshesToDraw.push_back(pDanbo);
-
-    }
-
-
-    //models
-    /*cMesh* pDanbo1 = new cMesh();
-    pDanbo1->meshName = "danbo.ply";
-    pDanbo1->drawPosition.x = 10.0f;
-    pDanbo1->drawPosition.y = 0.0f;
-    pDanbo1->drawPosition.z = 0.0f;
-    pDanbo1->setUniformDrawScale(2.0f);
-    pDanbo1->friendlyName = "danbo";
-    pDanbo1->textureName[0] = "taylor-swift-jimmy-fallon.bmp";
-    pDanbo1->textureRatios[0] = 0.6f;
-    pDanbo1->textureName[1] = "Water_Texture_01.bmp";
-    pDanbo1->textureRatios[1] = 0.4f;*/
-
-
-   // pDanbo1->bUseDebugColours = true;
-   /* cMesh* pDanbo = new cMesh();
-    pDanbo->meshName = "danbo.ply";
-    pDanbo->drawPosition.x = 0.0f;
-    pDanbo->drawPosition.y = 0.0f;
-    pDanbo->drawPosition.z = 0.0f;
-    pDanbo->setUniformDrawScale(2.0f);
-    pDanbo->friendlyName = "danbo1";
-    pDanbo->textureName[0] = "taylor-swift-jimmy-fallon.bmp";
-    pDanbo->textureRatios[0] = 0.6f;
-    pDanbo->textureName[1] = "Water_Texture_01.bmp";
-    pDanbo->textureRatios[1] = 0.4f;*/
-    //::g_vec_pMeshesToDraw.push_back(pDanbo1);
-
-    //pDanbo1->alpha_trans = 0.5;
-    //trans add 
-    /*::g_vec_pMeshesToDraw.push_back(pDanbo1);
-
-    ::g_vec_pMeshesToDraw.push_back(pDanbo);*/
-
-    //floors
-   
-    cMesh* floor = new cMesh();
-    floor->meshName = "Flat_Grid_100x100.ply";
-    floor->friendlyName = "floor";
-    floor->setUniformDrawScale(0.3);
-    floor->textureName[0] = "floorTexture.bmp";
-    floor->textureRatios[0] = 1.0f;
-    floor->bIsVisible = true;
-    floor->drawPosition = glm::vec3(0, -2, 0);
-     g_vec_pMeshesToDraw.push_back(floor);
-
-
     //::g_vec_pMeshesToDraw.push_back(pDanbo1);
 
     //LIGHTS
@@ -327,28 +221,20 @@ int main(void)
     ::g_pTheLights->theLights[0].param2.x = 1.0f;   // Turn on
     ::g_pTheLights->theLights[0].param1.x = 0.0f;   // 1 = spot light
     ::g_pTheLights->theLights[0].atten.x = 0.0f;        // Constant attenuation
-    ::g_pTheLights->theLights[0].atten.y = 0.001f;        // Linear attenuation
-    ::g_pTheLights->theLights[0].atten.z = 0.001f;        // Quadratic attenuation
+    ::g_pTheLights->theLights[0].atten.y = 0.0001f;        // Linear attenuation
+    ::g_pTheLights->theLights[0].atten.z = 0.0001f;        // Quadratic attenuation
     ::g_pTheLights->theLights[0].position.x = 0.0f;
-    ::g_pTheLights->theLights[0].position.y = 40.0f;
-    ::g_pTheLights->theLights[0].position.z = -40.0f;
+    ::g_pTheLights->theLights[0].position.y = 20.0f;
+    ::g_pTheLights->theLights[0].position.z = 0.0f;
 
 
     float yaxisRotation = 0.0f;
 
     double lastTime = glfwGetTime();
 
-    //SORT BEFORE based on XYZ
-    std::sort(g_vec_pMeshesToDraw.begin(), g_vec_pMeshesToDraw.end(), [](cMesh* &pos1, cMesh* &pos2) {return pos1->drawPosition.x < pos1->drawPosition.x; });
-    std::sort(g_vec_pMeshesToDraw.begin(), g_vec_pMeshesToDraw.end(), [](cMesh*& pos1, cMesh*& pos2) {return pos1->drawPosition.y < pos1->drawPosition.y; });
-    std::sort(g_vec_pMeshesToDraw.begin(), g_vec_pMeshesToDraw.end(), [](cMesh*& pos1, cMesh*& pos2) {return pos1->drawPosition.z < pos1->drawPosition.z; });
-
-
-
-
     while (!glfwWindowShouldClose(window))
     {
-
+       // g_cameraTarget = g_vec_pMeshesToDraw[0]->drawPosition;//set camera on player
         // Switch the "main" shader
         shaderProgramID = pShaderThing->getIDFromFriendlyName("shader01");
         glUseProgram(shaderProgramID);
@@ -377,17 +263,6 @@ int main(void)
 // *****************************************************************
         //uniform vec4 eyeLocation;
 
-        //double check camera
-        // Point the spotlight at the bathtub
-       /* cMesh* pTemp = g_pFindMeshByFriendlyName("danbo");
-        if (pTemp)
-        {
-            glm::vec3 bathTubToLightRay = pTemp->drawPosition - glm::vec3(::g_pTheLights->theLights[0].position);
-
-            bathTubToLightRay = glm::normalize(bathTubToLightRay);
-
-            ::g_pTheLights->theLights[0].direction = glm::vec4(bathTubToLightRay, 1.0f);
-        }*/
 
         GLint eyeLocation_UL = glGetUniformLocation(shaderProgramID, "eyeLocation");
         glUniform4f(eyeLocation_UL,
@@ -424,7 +299,7 @@ int main(void)
             {
                 
                 glm::mat4 matModel = glm::mat4(1.0f);   // Identity matrix
-                if (pCurrentMesh->friendlyName == "danbo")
+                if (pCurrentMesh->friendlyName == "player")
                 {
                 
                 glm::vec3 m_rayFromStartToEnd = g_cameraEye - g_vec_pMeshesToDraw[index]->drawPosition;
@@ -436,37 +311,6 @@ int main(void)
                 DrawObject(pCurrentMesh, matModel, shaderProgramID);
             }
 
-        }
-
-        // Draw the skybox
-        {
-            // HACK: I'm making this here, but hey...
-            cMesh theSkyBox;
-            theSkyBox.meshName = "Sphere_1_unit_Radius_xyz_n_rgba_uv.ply";
-            theSkyBox.setUniformDrawScale(10.0f);
-
-            theSkyBox.setUniformDrawScale(5'000.0f);
-            theSkyBox.setDrawPosition(::g_cameraEye);
-//            theSkyBox.bIsWireframe = true;
-
-            // Depth test
-//            glDisable(GL_DEPTH_TEST);       // Writes no matter what
-            // Write to depth buffer (depth mask)
-//            glDepthMask(GL_FALSE);          // Won't write to the depth buffer
-            
-            // uniform bool bIsSkyBox;
-            GLint bIsSkyBox_UL = glGetUniformLocation(shaderProgramID, "bIsSkyBox");
-            glUniform1f(bIsSkyBox_UL, (GLfloat) GL_TRUE);
-
-            // The normals for this sphere are facing "out" but we are inside the sphere
-            glCullFace(GL_FRONT);
-
-            DrawObject(&theSkyBox, glm::mat4(1.0f), shaderProgramID);
-
-            glUniform1f(bIsSkyBox_UL, (GLfloat)GL_FALSE);
-
-            // Put the culling back to "normal" (back facing are not drawn)
-            glCullFace(GL_BACK);
         }
 
         //delta time
@@ -986,297 +830,6 @@ float getRandomFloat(float a, float b) {
 }
 std::string modelName = "";
 
-glm::vec3 LoadAllTheModels(std::string sceneFileName,
-    cVAOManager* pVAOManager,
-    unsigned int shaderProgramID,
-    std::string& error)
-{
-    // Open the file that lists the models I'd like to load into the VAO
-    std::ifstream sceneFile(sceneFileName.c_str());
-
-    if (!sceneFile.is_open())
-    {
-        error = "Can't load file " + sceneFileName;
-        exit(0);//quit 
-    }
-
-    int modelsLoaded = 0;
-    int meshsCreated = 0;
-
-    // File is open at this point
-    std::string dumpster = "";
-
-    //remove comment 
-    sceneFile >> dumpster;
-
-    //get camera pos
-    float xCamera = 0;
-    float yCamera = 0;
-    float zCamera = 0;
-
-    //get inputs
-    sceneFile >> xCamera;
-    sceneFile >> yCamera;
-    sceneFile >> zCamera;
-
-    //add to be returned
-    glm::vec3 toBeReturned = glm::vec3(xCamera, yCamera, zCamera);
-
-    //remove comment 
-    sceneFile >> dumpster;
-    //model types loaded
-    do
-    {
-        //get file name
-        std::string modelFileName;
-        sceneFile >> modelFileName;
-
-        if (modelFileName == "END") // LOOP TILL END
-            break;
-
-        //add info
-        sModelDrawInfo drawingInfo;
-        pVAOManager->LoadModelIntoVAO("assets/models/Core/" + modelFileName, drawingInfo, shaderProgramID);
-      /*  if (!pVAOManager->LoadModelIntoVAO("assets/models/Core/" + modelFileName, drawingInfo, shaderProgramID))
-        {
-            std::cout << "assets/models/Core/" << modelFileName << "Is not valid" << std::endl;
-        }*/
-        if(modelName != "")
-            modelName = modelName + "\n";
-
-        std::cout << "Loaded: " << modelFileName << " with " << drawingInfo.numberOfVertices << " vertices" << std::endl;
-        modelName = modelName + modelFileName;
-        modelsLoaded++;
-
-    } while (true);
-
-    //remove meshDesc
-    sceneFile >> dumpster;
-
-    do
-    {
-        cMesh* meshDrawInfo = new cMesh;
-
-        //model path
-        std::string modelType = "";
-        sceneFile >> modelType;
-
-        if (modelType == "END")// LOOP TILL END
-            break;
-
-        meshDrawInfo->meshName = modelType;
-
-        //xyz
-        std::string xCord = "";
-        std::string yCord = "";
-        std::string zCord = "";
-
-        //get them
-        sceneFile >> xCord;
-        sceneFile >> yCord;
-        sceneFile >> zCord;
-
-        //xyz
-        meshDrawInfo->drawPosition.x = std::stof(xCord);
-        meshDrawInfo->drawPosition.y = std::stof(yCord);
-        meshDrawInfo->drawPosition.z = std::stof(zCord);
-
-        //xyz Rot
-        std::string xRot = "";
-        std::string yRot = "";
-        std::string zRot = "";
-
-        sceneFile >> xRot;
-        sceneFile >> yRot;
-        sceneFile >> zRot;
-
-
-        meshDrawInfo->setRotationFromEuler(glm::vec3(std::stof(xRot), std::stof(yRot), std::stof(zRot)));
-
-        //scale
-        std::string scale = "";
-        sceneFile >> scale;
-
-        meshDrawInfo->setUniformDrawScale(std::stof(scale));//scales
-
-        //RGBA
-        std::string rCol = "";
-        std::string gCol = "";
-        std::string bCol = "";
-        std::string aCol = "";
-
-        //get color
-        sceneFile >> rCol;
-        sceneFile >> gCol;
-        sceneFile >> bCol;
-        sceneFile >> aCol;
-
-        //RGBA inputed as 255 vals: needs floats
-        meshDrawInfo->wholeObjectDebugColourRGBA = glm::vec4(std::stof(rCol) / 255.0, std::stof(gCol) / 255.0, std::stof(bCol) / 255.0, std::stof(aCol));
-
-        //frendily name
-        std::string fName = "";
-        sceneFile >> fName;
-
-        meshDrawInfo->friendlyName = fName;
-
-        //texture name
-        std::string textName = "";
-        sceneFile >> textName;
-
-        meshDrawInfo->textureName[0] = textName;
-
-        //texture number
-        float textNumber = 0.0;
-        sceneFile >> textNumber;
-
-        meshDrawInfo->textureRatios[0] = textNumber;
-
-        //add to
-        meshsCreated++;
-        g_vec_pMeshesToDraw.push_back(meshDrawInfo);
-
-    } while (true);
-
-    //output result
-    std::cout << "Loaded from file: Models = " << std::to_string(modelsLoaded) << " and Meshs = " + std::to_string(meshsCreated) << std::endl;
-    return toBeReturned;
-}
-
-bool consoleOutputOfScene(void)
-{
-    system("cls");// clear
-
-    //camera block
-    std::cout << "CAMERA" << std::endl;
-    std::cout << g_cameraEye.x << " " << g_cameraEye.y << " " << g_cameraEye.z << std::endl;
-
-    //MODEL block
-    std::cout << "MODELS" << std::endl;
-
-    //list model names
-    std::cout << modelName << std::endl;
-
-    std::cout << "END" << std::endl;
-
-    //SET BLOCK
-    std::cout << "SETS" << std::endl;
-
-    //load all models
-    //cMesh* pTable = new cMesh();
-    //pTable->meshName = "table.ply";
-    //pTable->drawPosition.y = -10.0f;
-    //pTable->drawPosition.z = 0.0f;
-    //pTable->setUniformDrawScale(.03);
-    //pTable->friendlyName = "Table";
-    //pTable->textureName[0] = "table.bmp";
-    //pTable->textureRatios[0] = 1.0f;
-    //::g_vec_pMeshesToDraw.push_back(pTable);
-
-    //list model names
-    for (int i = 0; i < g_vec_pMeshesToDraw.size(); i++)
-    {
-        std::cout << g_vec_pMeshesToDraw[i]->meshName << std::endl;
-        std::cout << g_vec_pMeshesToDraw[i]->drawPosition.x << " " << g_vec_pMeshesToDraw[i]->drawPosition.y << " " << g_vec_pMeshesToDraw[i]->drawPosition.z << std::endl;
-        std::cout << g_vec_pMeshesToDraw[i]->getDrawOrientation().x << " " << g_vec_pMeshesToDraw[i]->getDrawOrientation().y << " " << g_vec_pMeshesToDraw[i]->getDrawOrientation().z << std::endl;
-        std::cout << g_vec_pMeshesToDraw[i]->drawScale.x << std::endl; // all are uniform
-        std::cout << g_vec_pMeshesToDraw[i]->wholeObjectDebugColourRGBA.x << " " << g_vec_pMeshesToDraw[i]->wholeObjectDebugColourRGBA.y << " " << g_vec_pMeshesToDraw[i]->wholeObjectDebugColourRGBA.z << " " << g_vec_pMeshesToDraw[i]->wholeObjectDebugColourRGBA.a << std::endl; // all are uniform
-        std::cout << g_vec_pMeshesToDraw[i]->friendlyName << std::endl; // all are uniform
-        std::cout << g_vec_pMeshesToDraw[i]->textureName[0] << std::endl;
-        std::cout << g_vec_pMeshesToDraw[i]->textureRatios[0] << std::endl;
-
-    }
-
-    std::cout << "END" << std::endl;
-
-    //could add a write to file
-
-
-    return true;
-}
-
-bool LoadModels()
-{
-
-
-    cMesh* pTable = new cMesh();
-    pTable->meshName = "table.ply";
-   // pTable->drawPosition.y = 0.0f;
-    //pTable->drawPosition.z = 10.0f;
-    pTable->setUniformDrawScale(0.04);
-    pTable->friendlyName = "Table";
-    pTable->textureName[0] = "table.bmp";
-    pTable->textureRatios[0] = 1.0f;
-  // ::g_vec_pMeshesToDraw.push_back(pTable);
-
-    //model needs fixin
-    cMesh* pBear = new cMesh();
-    pBear->meshName = "bear.ply";
-    // pTable->drawPosition.y = 0.0f;
-     //pTable->drawPosition.z = 10.0f;
-    pBear->setUniformDrawScale(0.01f);
-    pBear->friendlyName = "bear";
-    pBear->textureName[0] = "bear.bmp";
-    pBear->textureRatios[0] = 1.0f;
-   // ::g_vec_pMeshesToDraw.push_back(pBear);
-
-    //model needs fixin
-    //cMesh* pDilly = new cMesh();
-    //pDilly->meshName = "dilly.ply";
-    //// pTable->drawPosition.y = 0.0f;
-    // //pTable->drawPosition.z = 10.0f;
-    //pDilly->setUniformDrawScale(0.05f);
-    //pDilly->friendlyName = "dilly";
-    ////pDilly->textureName[0] = "bear.bmp";
-    ////pDilly->textureRatios[0] = 1.0f;
-    //::g_vec_pMeshesToDraw.push_back(pDilly);
-
-        //model needs fixin
-    cMesh* pDoom = new cMesh();
-    pDoom->meshName = "doom.ply";
-    // pTable->drawPosition.y = 0.0f;
-     //pTable->drawPosition.z = 10.0f;
-    pDoom->setUniformDrawScale(10.05f);
-    pDoom->friendlyName = "doom";
-    //pDilly->textureName[0] = "bear.bmp";
-    //pDilly->textureRatios[0] = 1.0f;
-   // ::g_vec_pMeshesToDraw.push_back(pDoom);
-
-
-
-    cMesh* pGroundMesh = new cMesh();
-    //    pGroundMesh->meshName = "Terrain_xyz_n_rgba_uv.ply";
-    //    pGroundMesh->meshName = "Big_Flat_Mesh_256x256_00_132K_xyz_n_rgba_uv.ply";    
-    //    pGroundMesh->meshName = "Big_Flat_Mesh_256x256_07_1K_xyz_n_rgba_uv.ply";    
-    pGroundMesh->meshName = "Big_Flat_Mesh_256x256_12_5_xyz_n_rgba_uv.ply";
-    pGroundMesh->drawPosition.y = -50.0f;
-    pGroundMesh->drawPosition.z = -50.0f;
-    pGroundMesh->friendlyName = "Ground";
-
-    //pGroundMesh->bIsWireframe = true;
-    //pGroundMesh->bDoNotLight = true;
-    //pGroundMesh->wholeObjectDebugColourRGBA = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
-    //pGroundMesh->bUseDebugColours = true;
-    //
-//    pGroundMesh->textureName[0] = "NvF5e_height_map.bmp";
-//    pGroundMesh->textureName[0] = "Blank_UV_Text_Texture.bmp";
-    pGroundMesh->textureName[0] = "TaylorSwift_Eras_Poster.bmp";
-    pGroundMesh->textureRatios[0] = 1.0f;
-
-
-
-    //::g_vec_pMeshesToDraw.push_back(pGroundMesh);
-
-
-
-
-    const float MAX_SPHERE_LOCATION = 30.0f;
-    const float MAX_VELOCITY = 1.0f;
-
-    // Make a bunch of spheres...
-
-    return true;
-}
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
@@ -1286,35 +839,13 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     }
 
     const float CAMERA_MOVEMENT_SPEED = 1.0f;
-    const float OBJECT_MOVEMENT_SPEED = 0.01f;
+    const float OBJECT_MOVEMENT_SPEED = 0.10f;
     const float LIGHT_MOVEMENT_SPEED = 1.0f;
     int maxCounter = g_vec_pMeshesToDraw.size() - 1;
 
     // Nothing down
     if (mods == 0)
     {
-        if (key == GLFW_KEY_C && action)
-        {
-            std::cout <<" -/+ switches selected object" << std::endl;
-            std::cout << " n/m changes scale (m is minus)" << std::endl;
-            std::cout << " wasd moves objects" << std::endl;
-            std::cout << " qe moves objects y state" << std::endl;
-            std::cout << " p prints out current states" << std::endl;
-            std::cout << " t test key" << std::endl;
-
-        }
-
-        if (key == GLFW_KEY_T && action)
-        {
-             g_HeightAdjust += 10.0f;
-
-        }
-
-        if (key == GLFW_KEY_P && action)
-        {
-            std::cout << "drawPosition " << g_vec_pMeshesToDraw[objectToMove]->drawPosition.x << " " << g_vec_pMeshesToDraw[objectToMove]->drawPosition.y << " " << g_vec_pMeshesToDraw[objectToMove]->drawPosition.z << std::endl;
-            std::cout << "drawScale " << g_vec_pMeshesToDraw[objectToMove]->drawScale.x << " " << g_vec_pMeshesToDraw[objectToMove]->drawScale.y << " " << g_vec_pMeshesToDraw[objectToMove]->drawScale.z << std::endl;
-        }
 
         //object selector
         if (key == GLFW_KEY_MINUS && action)
@@ -1336,25 +867,6 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
         }
 
 
-        if (key == GLFW_KEY_N && action)
-        {
-            g_vec_pMeshesToDraw[objectToMove]->drawScale.x += 0.05;
-            g_vec_pMeshesToDraw[objectToMove]->drawScale.y += 0.05;
-            g_vec_pMeshesToDraw[objectToMove]->drawScale.z += 0.05;
-
-
-        }
-
-
-        if (key == GLFW_KEY_N && action)
-        {
-            g_vec_pMeshesToDraw[objectToMove]->drawScale.x -= 0.05;
-            g_vec_pMeshesToDraw[objectToMove]->drawScale.y -= 0.05;
-            g_vec_pMeshesToDraw[objectToMove]->drawScale.z -= 0.05;
-        }
-
-
-
         if (key == GLFW_KEY_A && action)
         {
 
@@ -1372,28 +884,17 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 
         if (key == GLFW_KEY_W && action)
         {
-            g_vec_pMeshesToDraw[objectToMove]->drawPosition.z -= CAMERA_MOVEMENT_SPEED;
+            g_vec_pMeshesToDraw[objectToMove]->drawPosition.y += CAMERA_MOVEMENT_SPEED;
             //std::cout << "z-: " << g_vec_pMeshesToDraw[objectToMove]->drawPosition.z << std::endl;
         }
         if (key == GLFW_KEY_S && action)
         {
-            g_vec_pMeshesToDraw[objectToMove]->drawPosition.z += CAMERA_MOVEMENT_SPEED;
+            g_vec_pMeshesToDraw[objectToMove]->drawPosition.y -= CAMERA_MOVEMENT_SPEED;
             //std::cout << "z+: " << g_vec_pMeshesToDraw[0]->drawPosition.z << std::endl;
 
         }
 
-        if (key == GLFW_KEY_Q && action)
-        {
-            g_vec_pMeshesToDraw[objectToMove]->drawPosition.y += CAMERA_MOVEMENT_SPEED;
-            //std::cout << "y+: " << g_vec_pMeshesToDraw[0]->drawPosition.y << std::endl;
-            
-        }
-        if (key == GLFW_KEY_E && action)
-        {
-            g_vec_pMeshesToDraw[objectToMove]->drawPosition.y -= CAMERA_MOVEMENT_SPEED;
-            //std::cout << "y-: " << g_vec_pMeshesToDraw[0]->drawPosition.y << std::endl;
-
-        }
+      
 
     }
 
