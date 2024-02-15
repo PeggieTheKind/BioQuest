@@ -1,2 +1,7 @@
-name:placement:0:0:0
+name:fred
+model:player7.ply
+pos:0.0:0.0:0.0
+scale:0.10
+debug:1
+health:100
 

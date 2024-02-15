@@ -43,6 +43,9 @@
     <Filter Include="txtReading">
       <UniqueIdentifier>{c8c65b0a-e4b7-48a8-955d-1c4894feb77d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="EntityFactory">
+      <UniqueIdentifier>{4fa9398c-6455-472d-b890-9c8c45af6a39}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="theMain.cpp">

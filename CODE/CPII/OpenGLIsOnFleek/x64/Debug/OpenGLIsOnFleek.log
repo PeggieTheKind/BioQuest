@@ -1,5 +1,4 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Graphics2.vcxproj, OpenGLIsOnFleek.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   theMain.cpp
-C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(211,32): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\theMain.cpp(844,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\OpenGLIsOnFleek\GLWF_CallBacks.h(33,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   OpenGLIsOnFleek.vcxproj -> C:\Users\Peggie\Desktop\Project2Comp\ComponentPII\BioQuest\CODE\CPII\x64\Debug\BioQuest.exe

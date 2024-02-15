@@ -71,13 +71,85 @@ void DrawObject(cMesh* pCurrentMesh, glm::mat4 matModel, GLuint shaderProgramID)
 cMesh* g_pFindMeshByFriendlyName(std::string friendlyNameToFind);
 void DrawLightDebugSpheres(glm::mat4 matProjection, glm::mat4 matView,GLuint shaderProgramID);
 float getRandomFloat(float a, float b);
-glm::vec3 LoadAllTheModels(std::string sceneFileName,
-    cVAOManager* pVAOManager,
-    unsigned int shaderProgramID,
-    std::string& error);
-bool consoleOutputOfScene(void);
-bool LoadModels();
 
+//void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+//{
+//    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+//    {
+//        glfwSetWindowShouldClose(window, GLFW_TRUE);
+//    }
+//
+//    const float CAMERA_MOVEMENT_SPEED = 1.0f;
+//    const float OBJECT_MOVEMENT_SPEED = 0.10f;
+//    const float LIGHT_MOVEMENT_SPEED = 1.0f;
+//    int maxCounter = g_vec_pMeshesToDraw.size() - 1;
+//
+//    // Nothing down
+//    if (mods == 0)
+//    {
+//
+//        //object selector
+//        if (key == GLFW_KEY_MINUS && action)
+//        {
+//            if (objectToMove - 1 >= 0)
+//            {
+//                objectToMove--;
+//                std::cout << "-" << objectToMove << std::endl;
+//            }
+//        }
+//
+//        if (key == GLFW_KEY_EQUAL && action)
+//        {
+//            if (objectToMove < maxCounter)
+//            {
+//                objectToMove++;
+//                std::cout << "+" << objectToMove << std::endl;
+//            }
+//        }
+//
+//
+//        if (key == GLFW_KEY_A && action)
+//        {
+//            cMesh* temp = g_pFindMeshByFriendlyName("fred");//player
+//            temp->directionChange(1, temp);//left
+//
+//            g_vec_pMeshesToDraw[objectToMove]->drawPosition.x -= CAMERA_MOVEMENT_SPEED;
+//            /*g_vec_pMeshesToDraw[1]->drawPosition.x += 0.05f;*/
+//            // std::cout << "x-: " << g_vec_pMeshesToDraw[objectToMove]->drawPosition.x << std::endl;
+//
+//        }
+//        if (key == GLFW_KEY_D && action)
+//        {
+//            cMesh* temp = g_pFindMeshByFriendlyName("fred");//player
+//            temp->directionChange(2, temp);//left
+//            g_vec_pMeshesToDraw[objectToMove]->drawPosition.x += CAMERA_MOVEMENT_SPEED;
+//            //std::cout << "x+: " << g_vec_pMeshesToDraw[0]->drawPosition.x << std::endl;
+//
+//        }
+//
+//        if (key == GLFW_KEY_W && action)
+//        {
+//            cMesh* temp = g_pFindMeshByFriendlyName("fred");//player
+//            temp->directionChange(3, temp);//left
+//            g_vec_pMeshesToDraw[objectToMove]->drawPosition.y += CAMERA_MOVEMENT_SPEED;
+//            //std::cout << "z-: " << g_vec_pMeshesToDraw[objectToMove]->drawPosition.z << std::endl;
+//        }
+//        if (key == GLFW_KEY_S && action) //down
+//        {
+//            cMesh* temp = g_pFindMeshByFriendlyName("fred");//player
+//            temp->directionChange(0, temp);//down
+//
+//            g_vec_pMeshesToDraw[objectToMove]->drawPosition.y -= CAMERA_MOVEMENT_SPEED;
+//            //std::cout << "z+: " << g_vec_pMeshesToDraw[0]->drawPosition.z << std::endl;
+//
+//        }
+//
+//
+//
+//    }
+//
+//    return;
+//}
 
 // HACK:
 float g_HeightAdjust = 10.0f;
@@ -91,9 +163,7 @@ static void error_callback(int error, const char* description)
 
 int main(void)
 {
-    //attempt load from json
-    textReading* temp = new textReading();
-    temp->readTxt();
+   
     
     cMesh bob;
 
@@ -109,7 +179,7 @@ int main(void)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
-    window = glfwCreateWindow(640, 480, "Simple example", NULL, NULL);
+    window = glfwCreateWindow(640, 480, "BioQuest", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -168,6 +238,27 @@ int main(void)
         player7, shaderProgramID);
     std::cout << "Loaded: " << player7.numberOfVertices << " vertices" << std::endl;
 
+    sModelDrawInfo player1;
+    //    ::g_pMeshManager->LoadModelIntoVAO("Sphere_1_unit_Radius.ply",
+    ::g_pMeshManager->LoadModelIntoVAO("player2.ply",
+        player1, shaderProgramID);
+    std::cout << "Loaded: " << player1.numberOfVertices << " vertices" << std::endl;
+
+    sModelDrawInfo player5;
+    //    ::g_pMeshManager->LoadModelIntoVAO("Sphere_1_unit_Radius.ply",
+    ::g_pMeshManager->LoadModelIntoVAO("player5.ply",
+        player5, shaderProgramID);
+    std::cout << "Loaded: " << player5.numberOfVertices << " vertices" << std::endl;
+
+    sModelDrawInfo player11;
+    //    ::g_pMeshManager->LoadModelIntoVAO("Sphere_1_unit_Radius.ply",
+    ::g_pMeshManager->LoadModelIntoVAO("player11.ply",
+        player11, shaderProgramID);
+    std::cout << "Loaded: " << player11.numberOfVertices << " vertices" << std::endl;
+
+    //attempt load from json - singleton
+    textReading* temp = textReading::GetInstance();
+    g_vec_pMeshesToDraw = temp->readTxt();
     
     // ... and so on
     ::g_pTextureManager = new cBasicTextureManager();
@@ -202,17 +293,6 @@ int main(void)
                                                        "TropicalSunnyDayBack2048.bmp",
                                                        true,
                                                        errors);
-
-    //models
-    //map for discard
-    cMesh* mapOf = new cMesh();
-    mapOf->meshName = "player7.ply";
-    mapOf->friendlyName = "player";
-    mapOf->setUniformDrawScale(.10);
-    mapOf->bUseDebugColours = true;
-    
-    ::g_vec_pMeshesToDraw.push_back(mapOf);
-    //::g_vec_pMeshesToDraw.push_back(pDanbo1);
 
     //LIGHTS
     ::g_pTheLights = new cLightManager();
@@ -299,7 +379,7 @@ int main(void)
             {
                 
                 glm::mat4 matModel = glm::mat4(1.0f);   // Identity matrix
-                if (pCurrentMesh->friendlyName == "player")
+                if (pCurrentMesh->friendlyName == "fred")
                 {
                 
                 glm::vec3 m_rayFromStartToEnd = g_cameraEye - g_vec_pMeshesToDraw[index]->drawPosition;
@@ -343,20 +423,6 @@ int main(void)
     exit(EXIT_SUCCESS);
 }
 
-// Returns NULL if not found
-cMesh* g_pFindMeshByFriendlyName(std::string friendlyNameToFind)
-{
-    for ( unsigned int index = 0; index != ::g_vec_pMeshesToDraw.size(); index++ )
-    {
-        if ( ::g_vec_pMeshesToDraw[index]->friendlyName == friendlyNameToFind )
-        {
-            // Found it
-            return ::g_vec_pMeshesToDraw[index];
-        }
-    }
-    // Didn't find it
-    return NULL;
-}
 
 
 void DrawLightDebugSpheres(glm::mat4 matProjection, glm::mat4 matView,
@@ -831,72 +897,3 @@ float getRandomFloat(float a, float b) {
 std::string modelName = "";
 
 
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
-{
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-    {
-        glfwSetWindowShouldClose(window, GLFW_TRUE);
-    }
-
-    const float CAMERA_MOVEMENT_SPEED = 1.0f;
-    const float OBJECT_MOVEMENT_SPEED = 0.10f;
-    const float LIGHT_MOVEMENT_SPEED = 1.0f;
-    int maxCounter = g_vec_pMeshesToDraw.size() - 1;
-
-    // Nothing down
-    if (mods == 0)
-    {
-
-        //object selector
-        if (key == GLFW_KEY_MINUS && action)
-        {
-            if (objectToMove - 1 >= 0)
-            {
-                objectToMove--;
-                std::cout << "-" << objectToMove << std::endl;
-            }
-        }
-
-        if (key == GLFW_KEY_EQUAL && action)
-        {
-            if (objectToMove < maxCounter)
-            {
-                objectToMove++;
-                std::cout << "+" << objectToMove << std::endl;
-            }
-        }
-
-
-        if (key == GLFW_KEY_A && action)
-        {
-
-            g_vec_pMeshesToDraw[objectToMove]->drawPosition.x -= CAMERA_MOVEMENT_SPEED;
-            /*g_vec_pMeshesToDraw[1]->drawPosition.x += 0.05f;*/
-           // std::cout << "x-: " << g_vec_pMeshesToDraw[objectToMove]->drawPosition.x << std::endl;
-
-        }
-        if (key == GLFW_KEY_D && action)
-        {
-            g_vec_pMeshesToDraw[objectToMove]->drawPosition.x += CAMERA_MOVEMENT_SPEED;
-            //std::cout << "x+: " << g_vec_pMeshesToDraw[0]->drawPosition.x << std::endl;
-
-        }
-
-        if (key == GLFW_KEY_W && action)
-        {
-            g_vec_pMeshesToDraw[objectToMove]->drawPosition.y += CAMERA_MOVEMENT_SPEED;
-            //std::cout << "z-: " << g_vec_pMeshesToDraw[objectToMove]->drawPosition.z << std::endl;
-        }
-        if (key == GLFW_KEY_S && action)
-        {
-            g_vec_pMeshesToDraw[objectToMove]->drawPosition.y -= CAMERA_MOVEMENT_SPEED;
-            //std::cout << "z+: " << g_vec_pMeshesToDraw[0]->drawPosition.z << std::endl;
-
-        }
-
-      
-
-    }
-
-    return;
-}

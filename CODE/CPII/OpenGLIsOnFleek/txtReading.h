@@ -6,16 +6,36 @@
 
 class textReading
 {
-public:
+protected:
+	//base ctor
 	textReading()
 	{
 		pathOfTXT = "gameData.txt";
 	}
 
-	std::vector<cMesh*> readTxt();
+	//singleton
+	static textReading* textReadingInstance; 
 
+public:
+	static textReading* GetInstance();
+
+	//returns result from text
+	std::vector<cMesh*> readTxt();
 	std::string pathOfTXT;
 };
+
+textReading* textReading::textReadingInstance = nullptr;
+
+inline textReading* textReading::GetInstance()
+{
+	if (textReadingInstance == nullptr)
+	{
+		textReadingInstance = new textReading();//if doesnt exist sent new object
+	}
+
+	//return pointer
+	return textReadingInstance;
+}
 
 std::vector<cMesh*> textReading::readTxt()
 {
@@ -38,41 +58,67 @@ std::vector<cMesh*> textReading::readTxt()
 		std::string stat = lineOf.substr(0, lineOf.find(':'));
 		if (stat == "name")
 		{
-			temp->friendlyName = lineOf.substr(1, lineOf.find(':'));
+			temp->friendlyName = lineOf.substr(5, lineOf.find(':'));
 		}
 
-		if (stat == "placement")
+		if (stat == "pos")
 		{
 			//populate pos
-			temp->drawPosition.x = stof(lineOf.substr(1, lineOf.find(':'))); // x: find split line at X pos, and turn to float
+			std::string tester = lineOf.substr(4, lineOf.find(':'));
+			temp->drawPosition.x = stof(tester); // x: find split line at X pos, and turn to float
 
-			temp->drawPosition.y = stof(lineOf.substr(2, lineOf.find(':')));// y: find split line at X pos, and turn to float
+			tester = lineOf.substr(6, lineOf.find(':'));
+			temp->drawPosition.y = stof(tester);// y: find split line at X pos, and turn to float
 
-			temp->drawPosition.z = stof(lineOf.substr(3, lineOf.find(':')));// z: find split line at X pos, and turn to float
+			tester = lineOf.substr(8, lineOf.find(':'));
+			temp->drawPosition.z = stof(tester);// z: find split line at X pos, and turn to float
 
 		}
 
 		if (stat == "scale")
 		{
 			//get value, float it !
-			temp->setUniformDrawScale(stof(lineOf.substr(1, lineOf.find(':'))));
+			std::string tester = lineOf.substr(6, lineOf.find(':'));
+			temp->setUniformDrawScale(stof(tester));
 		}
 
 		if (stat == "health")
 		{
 			//get value, float it !
-			temp->healthOf = stof(lineOf.substr(1, lineOf.find(':')));
+			std::string tester = lineOf.substr(7, lineOf.find(':'));
+			temp->healthOf = stof(tester);
 		}
 
+		if (stat == "debug")
+		{
+			//get value, float it !
+			std::string tester = lineOf.substr(6, lineOf.find(':'));
+			int state = stoi(tester); //find int 
+			if (state == 0)
+				temp->bUseDebugColours = false;
+			else
+				temp->bUseDebugColours = true;
 
-		std::cout << lineOf << std::endl;
+		}
+
+		if (stat == "model")
+		{
+			//populate pos
+			std::string tester = lineOf.erase(0, 6);//clear front
+			temp->meshName = tester;
+		
+
+		}
+
 	}
 
+	toReturn.push_back(temp);
 	/*
 	name:player
-	placement:0:0:0
-	scale:1
-	health:100
+	model:player7.ply
+	pos:0:0:0
+	scale:.10
+	debug:true
 	*/
 
 	return toReturn;

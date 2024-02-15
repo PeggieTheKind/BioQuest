@@ -29,6 +29,8 @@ public:
 
 	std::string friendlyName;		// "Ground"
 
+	int direction;
+
 	float healthOf;
 	glm::vec3 drawPosition;
 
@@ -65,6 +67,8 @@ public:
 
 	glm::vec3 drawScale;
 	void setUniformDrawScale(float scale);
+	std::vector<std::string> playerMeshs;
+	void directionChange(int directionTo, cMesh* holderOf);
 
 	// STARTOF: From: iPhysicsMeshTransformAccess interface
 	virtual glm::vec3 getDrawPosition(void);

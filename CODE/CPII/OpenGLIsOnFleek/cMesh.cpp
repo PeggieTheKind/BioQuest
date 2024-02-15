@@ -19,7 +19,6 @@ cMesh::cMesh()
 	this->acceleration = 0.0f;
 	this->velocity = 0.0f;
 
-
 	this->bIsWireframe = false;
 	this->bDoNotLight = false;
 
@@ -38,10 +37,16 @@ cMesh::cMesh()
 	textureRatios[6] = 0.0f;
 	textureRatios[7] = 0.0f;
 
+	this->direction = 0;
 
 	// Set uniqueID
 	this->m_UniqueID = cMesh::m_nextUniqueID;
 	cMesh::m_nextUniqueID++;
+
+	playerMeshs.push_back("player7.ply"); //base
+	playerMeshs.push_back("player5.ply"); //right
+	playerMeshs.push_back("player2.ply"); //left
+	playerMeshs.push_back("player11.ply"); // up
 }
 
 unsigned int cMesh::getUniqueID(void)
@@ -63,6 +68,21 @@ void cMesh::setUniformDrawScale(float scale)
 {
 	this->drawScale.x = this->drawScale.y = this->drawScale.z = scale;
 	return;
+}
+
+void cMesh::directionChange(int directionTo, cMesh* holderOf)
+{
+	if (directionTo == 0) //down
+		holderOf->meshName = playerMeshs[0];
+
+	if (directionTo == 1) //left
+		holderOf->meshName = playerMeshs[1];
+
+	if (directionTo == 2) //right
+		holderOf->meshName = playerMeshs[2];
+
+	if (directionTo == 3) //up
+		holderOf->meshName = playerMeshs[3];
 }
 
 // STARTOF: From: iPhysicsMeshTransformAccess interface
